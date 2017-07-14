@@ -1,8 +1,13 @@
 function getData() {
     let num = $('#number').val();
     let pow = $('#power').val();
-    print(getPow(num, pow));
+    print('#space-for-print', getPow(num, pow));
+}
 
+function getDataLoop() {
+    let num = $('#number').val();
+    let pow = $('#power').val();
+    print('#loop', getPowInLoop(num, pow));
 }
 
 function getPow(num, pow) {
@@ -10,6 +15,14 @@ function getPow(num, pow) {
 
 }
 
-function print(res) {
-    $('#space-for-print').html(res);
+function getPowInLoop(num, pow) {
+    if (pow !== 1) {
+        return num * getPowInLoop(num, pow - 1);
+    } else {
+        return num
+    }
+}
+
+function print(id, res) {
+    $(id).html(res);
 }
