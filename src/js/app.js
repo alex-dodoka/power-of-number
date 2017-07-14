@@ -6,10 +6,10 @@ function getData() {
 }
 
 function getPow(num, pow) {
-    return num * getPow(num * pow + 1);
+    return (pow !== 1) ? num * getPow(num, pow - 1) : num;
+
 }
 
 function print(res) {
     $('#space-for-print').html(res);
 }
-
